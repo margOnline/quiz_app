@@ -1,7 +1,14 @@
 QuizApp::Application.routes.draw do
 
+
   resources :quizzes
 
+  # get '/quizzes' => 'quiz#index'
+  # post '/quizzes' => 'quiz#create'
+  # get '/quizzes/:id' => 'quiz#show'
+  # get '/quizzes/new' => 'quiz#new'
+  # get '/quizzes/:id/edit' => 'quiz#edit'
+  # put '/quizzes/:id' => 'quiz#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
