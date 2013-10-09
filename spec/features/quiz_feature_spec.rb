@@ -18,7 +18,7 @@ describe 'the quizzes section' do
     end
   end
 
-  describe 'an individual quiz' do
+  describe '/quizzes/:id' do
     it 'has its own page' do
       visit '/quizzes'
       click_link 'Some quiz'
@@ -27,7 +27,7 @@ describe 'the quizzes section' do
     end
   end
 
-  describe 'new quiz form' do
+  describe '/quizzes/new' do
     it 'creates a new quiz' do
       visit '/quizzes/new'
 
