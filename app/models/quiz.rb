@@ -5,4 +5,8 @@ class Quiz < ActiveRecord::Base
 
   validates :title, presence: true
 
+  def answers_id
+    questions.map { |q| q.correct_answer_id }
+  end
+
 end

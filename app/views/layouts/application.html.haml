@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Quiz App
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+
+    = stylesheet_link_tag 'bootstrap.min.css', media: 'all' 
+    = stylesheet_link_tag 'bootstrap-responsive.min.css', media: 'all' 
+    = stylesheet_link_tag 'application1.css', media: 'all' 
+    %script{src: 'http://code.jquery.com/jquery-2.0.3.min.js'}
+    %script{src: '/js/jquery.maxlength.min.js'}  
+    %script{src: '/js/application.js'}
+
+  %body
+    .wrapper
+      = render 'layouts/header' 
+      = yield
+      .push
+    = render 'layouts/footer'

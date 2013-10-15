@@ -1,0 +1,13 @@
+class Scorer
+
+  attr_reader :quiz
+  
+  def initialize(quiz)
+    @quiz = quiz
+  end
+
+  def total(answer_ids)
+    (@quiz.correct_answer_ids & answer_ids).length
+  end
+
+end

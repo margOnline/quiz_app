@@ -1,0 +1,11 @@
+.list-container 
+  %ul{class: 'listings'}
+  - if @quizzes.count > 0
+    - @quizzes.each do |quiz|
+      %li 
+        = link_to quiz.title, quiz 
+        %span{class: 'author'}
+          added by
+          = quiz.author
+  - else
+    %p No quizzes have been created

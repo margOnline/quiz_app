@@ -4,6 +4,16 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
+  def create
+    @quiz = Quiz.new params[:quiz].permit(:title, questions_attributes: [:query])
+    if @quiz.save
+      WebsocketRails[:quizzes].trigger 'new', @quiz
+      redirect_to @quiz
+    else
+      render 'new'
+    end
+  end
+
   def show
     @quiz = Quiz.find(params[:id])
     # redirect_to '/'
@@ -27,14 +37,6 @@ class QuizzesController < ApplicationController
     end
   end
 
-  def create
-    @quiz = Quiz.new params[:quiz].permit(:title, questions_attributes: [:query])
-
-    if @quiz.save
-      redirect_to @quiz
-    else
-      render 'new'
-    end
-  end
+  
 
 end

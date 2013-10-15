@@ -1,0 +1,12 @@
+.list-container 
+  %ul{class: 'listings'}
+    %h3
+      =@quiz.title
+    - @quiz.questions.each do |question| 
+      %li 
+        = question.query
+        ?
+
+
+
+
