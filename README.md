@@ -11,7 +11,7 @@ This app was forked from an existing application to:
 <ul>
 <li>amend view files to use haml instead of erb</li>
 <li>implement nested resources</li>
-<li>implement real time messaging using <a href="https://github.com/websocket-rails/websocket-rails/wiki/Installation-and-Setup"Websocket-rails</a></li>
+<li>implement real time messaging using <a href="https://github.com/websocket-rails/websocket-rails/wiki/Installation-and-Setup">Websocket-rails</a></li>
 <li>implement user sign in/out/up features using <a href="https://github.com/plataformatec/devise">Devise</a></li>
 <h3>Technical Configuration<h3>
 <ul>
