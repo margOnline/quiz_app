@@ -1,9 +1,14 @@
 %header
   #logo
     %a{href: "/"}
-      = image_tag "globe.jpeg"
+      = image_tag "globe150.jpg"
 
     %h1 Capital Cities iQuiz
 
   #user-links
-    = link_to 'Add +', new_quiz_path, :id => 'add-quiz'
+    = link_to 'Add +', new_quiz_path, :class => 'nav-bar-links'
+    - if current_user
+      = link_to 'Sign out', destroy_user_session_path, :class => 'nav-bar-links'
+    - else
+      = link_to 'Sign in', new_user_session_path, :class => 'nav-bar-links'
+      = link_to 'Sign up', new_user_registration_path, :class => 'nav-bar-links'

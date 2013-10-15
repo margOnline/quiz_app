@@ -31,6 +31,8 @@ gem 'haml-rails'
 
 gem 'websocket-rails'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
