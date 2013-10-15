@@ -1,5 +1,5 @@
 = f.fields_for :questions do |question_f|
-  = field_set_tag(legend = 'Questions')
-    =question_f.label :query, 'Question'
-    =question_f.text_field :query
-    = render 'answer_fields', f: question_f
+  / = field_set_tag(legend = 'Questions')
+  = question_f.label :query, 'Question'
+  = question_f.text_field :query
+  = render 'answer_fields', f: question_f

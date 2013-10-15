@@ -91,7 +91,8 @@ header #user-links #welcome-message {
 /* ************* CONTENT LIST ************* */
 .list-container{
   background-color: white;
-  margin: 140px;
+  width:60%;
+  margin: 140px auto;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding:10px;
 }
@@ -111,7 +112,7 @@ header #user-links #welcome-message {
   display:flex;
 }
 .listings {
-  width:60%;
+
   margin:auto;
   list-style: none;
 }

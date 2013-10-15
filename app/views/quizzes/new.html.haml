@@ -1,20 +1,19 @@
-- if @quiz.errors.any? 
-  #error_explanation
-    = pluralize(@quiz.errors.count, "error") 
-    prohibited this quiz from being saved:
-    %ul
-      = @quiz.errors.full_messages.each do |msg| 
-        %li= msg 
+.list-container 
+  - if @quiz.errors.any? 
+    #error_explanation
+      = pluralize(@quiz.errors.count, "error") 
+      prohibited this quiz from being saved:
+      %ul
+        = @quiz.errors.full_messages.each do |msg| 
+          %li= msg 
 
-= form_for @quiz do |f| 
+  = form_for @quiz do |f| 
 
-  = f.label :title 
-  = f.text_field :title, placeholder: 'Your title here'
+    = f.label :title 
+    = f.text_field :title, placeholder: 'Your title here'
     = f.label :author, 'Author' 
-  = f.text_field :author, placeholder: 'Your username here'
-  = f.fields_for :questions do |question_f| 
-
-    = render 'question_fields', f: f
-
-  = f.submit 
-
+    = f.text_field :author, placeholder: 'Your username here'
+    = 10.times do |n|
+      = f.fields_for :questions do |question_f| 
+        = render 'question_fields', f: f
+    = f.submit 
