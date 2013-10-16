@@ -96,7 +96,7 @@ header #user-links #welcome-message {
 .list-container{
   background-color: white;
   width:60%;
-  margin: 40px auto;
+  margin: 80px auto;
   box-shadow: 0 0 5px rgba(0,0,0,0.4);
   padding:10px;
 }
@@ -181,6 +181,13 @@ header #user-links #welcome-message {
 }
 .field_with_errors{
   border:1px solid #c00;
+}
+/* ************* ADD QUIZ FORM ************* */
+.new-question{
+  margin: 10px 0 0 20px;
+}
+.new-answer{
+  margin: 10px 0 0 20px;
 }
 
 /* ************* FOOTER ************* */

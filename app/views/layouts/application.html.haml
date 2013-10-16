@@ -14,8 +14,13 @@
   %body
     .wrapper
       = render 'layouts/header' 
-      %p{class: 'notice'}= notice
-      %p{class: 'alert'}= alert
+      
+      - if flash[:notice]
+        %p{class: 'notice'}= notice
+      
+      -if flash[:alert]
+        %p{class: 'alert'}= alert
+      
       = yield
       .push
     = render 'layouts/footer'

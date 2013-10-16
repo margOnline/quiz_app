@@ -1,5 +1,9 @@
 .list-container 
+
+  %p Click a title to take the quiz
+
   %ul{class: 'listings'}
+
   - if @quizzes.count > 0
     - @quizzes.each do |quiz|
       %li 
