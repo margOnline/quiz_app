@@ -1,27 +1,27 @@
 class QuizzesController < ApplicationController
 
+  before_filter :authenticate_user!, only:[:new, :create]
+
   def index
     @quizzes = Quiz.all
   end
 
   def create
-    @quiz = Quiz.new params[:quiz].permit(:title, questions_attributes: [:query])
+    @quiz = Quiz.new quiz_params
     if @quiz.save
       WebsocketRails[:quizzes].trigger 'new', @quiz
       redirect_to @quiz
     else
-      render 'new'
+      render :template => '/quizzes/new.html.haml'
     end
-  end
-
-  def show
-    @quiz = Quiz.find(params[:id])
-    # redirect_to '/'
   end
 
   def new
     @quiz = Quiz.new
-    @quiz.questions.build
+  end
+
+  def show
+    @quiz = Quiz.find(params[:id])
   end
 
   def edit
@@ -30,13 +30,16 @@ class QuizzesController < ApplicationController
 
   def update
     @quiz = Quiz.find params[:id]
-    if @quiz.update params[:quiz].permit(:title)
+    if @quiz.update quiz_params
       redirect_to @quiz
     else
       render 'edit'
     end
   end
 
+  def quiz_params
+    params.require(:quiz).permit :title, :author, questions_attributes:[:id, :query, answers_attributes:[:id, :response, :correctness]]
+  end
   
 
 end

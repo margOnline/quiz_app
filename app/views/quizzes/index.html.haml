@@ -11,5 +11,8 @@
         %span{class: 'author'}
           added by
           = quiz.author
+        %span
+          - link_to 'Edit', edit_quiz_path(quiz)
+          - link_to 'Delete', controller: 'quizzes', action: 'destroy', id: quiz.id
   - else
     %p No quizzes have been created

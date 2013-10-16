@@ -5,16 +5,19 @@ FactoryGirl.define do
   end
 
   factory :right_answer,  class: Answer do
-    response "Correct"
+    sequence(:response) {|n| "Correct#{n}"} 
     correctness true
   end
 
   factory :wrong_answer, class: Answer do
-    response "Incorrect"
+    sequence(:response) {|n| "Incorrect#{n}"} 
     correctness false
+  end
+
+  factory :question do  
+    query 'What is the right answer?'
+    answers { [create(:right_answer), create(:wrong_answer)]}
   end
 
 end
 
-
-#call the factory the same name as the model

@@ -1,4 +1,6 @@
 require 'spec_helper'
+include Warden::Test::Helpers
+Warden.test_mode!
 
 def create_quiz(some_title)
   Quiz.create({:title => some_title})
@@ -8,6 +10,7 @@ describe 'the quizzes section' do
 
   before(:all) do
     create_quiz 'Capital Cities iQuiz'
+    @user = User.create(email: 'a@a.com', password: '12345678', password_confirmation: '12345678')
   end
 
   describe '/quizzes' do
@@ -26,9 +29,13 @@ describe 'the quizzes section' do
   end
 
   describe '/quizzes/new' do
-    
+    before do
+      login_as @user
+    end
+
     it 'creates a new quiz' do
       visit '/quizzes/new'
+
       within '.new_quiz' do
         fill_in 'Title', with: 'Brand new quiz'
         click_button "Create Quiz"
@@ -41,7 +48,7 @@ describe 'the quizzes section' do
     it 'can also create a new question' do
       visit '/quizzes/new'
       fill_in 'Title', with: 'Quiz title'
-      fill_in 'Question', with: 'What is your name?'
+      fill_in 'Question 1', with: 'What is your name?'
       click_button 'Create Quiz'
 
       expect(page).to have_content 'What is your name?'
@@ -54,21 +61,5 @@ describe 'the quizzes section' do
       expect(page).to have_content 'error'
     end
   end
-
-  before do
-      @quiz = Quiz.create(title: 'Capital Cities iQuiz')
-      question1 = Question.create query: 'What is the capital of England', answers: Answer.create(response: 'Manchester', correctness: false)
-      question2 = Question.create query: 'What is the capital of England', answers: Answer.create(response: 'London', correctness: true)
-      quiz.questions += [question1, question2]
-    end
-
-    describe 'taking a quiz' do 
-      visit quiz_new_attempt_path(@quiz)
-      choose 'Manchester'
-      choose 'London'
-      click_button 'Submit'
-      expect(page).to have_content '50%'
-    end
-
 
 end

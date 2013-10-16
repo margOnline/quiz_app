@@ -13,7 +13,5 @@
     = f.text_field :title, placeholder: 'Your title here'
     = f.label :author, 'Author' 
     = f.text_field :author, placeholder: 'Your username here'
-    = 10.times do |n|
-      = f.fields_for :questions do |question_f| 
-        = render 'question_fields', f: f
+    = render 'question_fields', f: f
     = f.submit 
