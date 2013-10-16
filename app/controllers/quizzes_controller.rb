@@ -37,6 +37,12 @@ class QuizzesController < ApplicationController
     end
   end
 
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    @quiz.destroy
+    redirect_to root_path
+  end
+
   def quiz_params
     params.require(:quiz).permit :title, :author, questions_attributes:[:id, :query, answers_attributes:[:id, :response, :correctness]]
   end

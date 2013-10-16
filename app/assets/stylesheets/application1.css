@@ -137,11 +137,11 @@ header #user-links #welcome-message {
   -webkit-flex:2;
   flex:2;
 }
-.star {
+.crud-buttons {
   color:#e2aa00;
   font-size: 12px;
   display: inline-block;
-  letter-spacing: -0.15em;
+  margin-right: 5px;
   float: right;
 }
 

@@ -8,11 +8,11 @@
     - @quizzes.each do |quiz|
       %li 
         = link_to quiz.title, quiz 
-        %span{class: 'author'}
+        .author{class: 'author'}
           added by
           = quiz.author
-        %span
-          - link_to 'Edit', edit_quiz_path(quiz)
-          - link_to 'Delete', controller: 'quizzes', action: 'destroy', id: quiz.id
+        .crud-buttons
+          = link_to 'Edit', edit_quiz_path(quiz)
+          = link_to 'Delete', quiz, method: :delete, data: { confirm: 'Are you sure?'}
   - else
     %p No quizzes have been created

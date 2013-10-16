@@ -7,9 +7,9 @@
     = stylesheet_link_tag 'bootstrap.min.css', media: 'all' 
     = stylesheet_link_tag 'bootstrap-responsive.min.css', media: 'all' 
     = stylesheet_link_tag 'application1.css', media: 'all' 
-    %script{src: 'http://code.jquery.com/jquery-2.0.3.min.js'}
-    %script{src: '/js/jquery.maxlength.min.js'}  
-    %script{src: '/js/application.js'}
+    = javascript_include_tag 'http://code.jquery.com/jquery-2.0.3.min.js'
+    = javascript_include_tag 'jquery.maxlength.min.js' 
+    = javascript_include_tag 'application'
 
   %body
     .wrapper

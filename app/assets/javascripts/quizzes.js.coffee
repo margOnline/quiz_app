@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-var dispatcher = new WebSocketRails('localhost:3000/websocket');
-channel = dispatcher.subscribe('quizzes')
-channel.bind 'new', (quiz) -> $('body').prepend $('<h3>',{ text: quiz.title})
+#var dispatcher = new WebSocketRails('localhost:3000/websocket');
+#channel = dispatcher.subscribe('quizzes')
+#channel.bind 'new', (quiz) -> $('body').prepend $('<h3>',{ text: quiz.title})
