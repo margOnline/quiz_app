@@ -15,5 +15,4 @@ class AttemptsController < ActionController::Base
     def show
       
     end
-
 end
