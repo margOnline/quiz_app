@@ -91,6 +91,10 @@ header #user-links #welcome-message {
   padding: 3px 0;
   text-align: center;
 }
+.hello {
+  font-size: 12px;
+  margin-right: 5px;
+}
 
 /* ************* CONTENT LIST ************* */
 .list-container{
@@ -119,10 +123,8 @@ header #user-links #welcome-message {
   margin:auto;
 }
 
-.post{
-  color: #666;
-/*  font-size: 12px;*/
-
+.list-answers{
+  margin-bottom: 10px;
 }
 
 .description{
@@ -190,6 +192,19 @@ header #user-links #welcome-message {
   display: block;
 }
 
+/* ************* TIMER AND JS CSS ************* */
+
+.timer{
+  font-size: 72px;
+}
+
+.multiplayer .question{
+  display:none;
+ }
+ .multiplayer .question.active{
+  display:block;
+}
+
 /* ************* FOOTER ************* */
 footer{
   display:flex;
@@ -250,7 +265,7 @@ footer #copyright{
 /*  background-color: #427ca5;*/
 /*  border-radius:4px;
   box-shadow: 0 0 3px rgba(0,0,0,0.4);*/
-  color:white;
+
 }
 /* ************* MAX LENGTH PLUGIN ************* */
 .maxlength-feedback {

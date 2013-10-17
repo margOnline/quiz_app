@@ -1,0 +1,10 @@
+.multiplayer
+
+  .timer
+    @quiz.questions.each do |question|
+       .question
+        %h4= question.query
+          question.answers.each do |answer|
+     
+          %button{data-question-id: question_id, data-id: = answer.id} = answer.response
+

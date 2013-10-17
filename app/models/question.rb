@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   def correct_answer
     answers.find_by_correctness(true)
   end
-
+  
   def populate_answers(num_of_answers)
     num_of_answers.times{answers.build}
   end

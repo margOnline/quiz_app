@@ -1,9 +1,9 @@
 QuizApp::Application.routes.draw do
 
-
   devise_for :users
   resources :quizzes do
     resources :attempts, only: [:new, :create, :show]
+    resources :multiplayer_attempts, only: [:new]
   end
 
   resources :questions do
@@ -18,6 +18,8 @@ QuizApp::Application.routes.draw do
   # put '/quizzes/:id' => 'quiz#update'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+  post '/multiplayer_attempts/check_answer' => 'multiplayer_attempts#check_answer'
+
 
   # You can have the root of your site routed with "root"
   root :to => 'quizzes#index'

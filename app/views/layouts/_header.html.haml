@@ -6,8 +6,13 @@
     %h1 Capital Cities iQuiz
 
   #user-links
-    = link_to 'Add +', new_quiz_path, :class => 'nav-bar-links'
     - if current_user
+      .hello
+        hello 
+        = current_user.email
+    = link_to 'Add +', new_quiz_path, :class => 'nav-bar-links'
+
+    - if current_user 
       = link_to 'Sign out', destroy_user_session_path, :class => 'nav-bar-links'
     - else
       = link_to 'Sign in', new_user_session_path, :class => 'nav-bar-links'
