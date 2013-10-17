@@ -8,12 +8,12 @@ class Quiz < ActiveRecord::Base
   validates :title, presence: true
   validates :author, presence: true
 
-  def populate(num_of_questions: 0, num_of_answers: 0)
-    num_of_questions.times do |variable|
-      question = questions.build
-      question.populate_answers(num_of_answers)
-    end
-  end
+  # def populate(num_of_questions: 0, num_of_answers: 0)
+  #   num_of_questions.times do |variable|
+  #     question = questions.build
+  #     question.populate_answers(num_of_answers)
+  #   end
+  # end
 
   def correct_answers_id
     questions.map { |q| q.correct_answer_id }
@@ -22,8 +22,8 @@ class Quiz < ActiveRecord::Base
 
   def build_questions(count=6, num_of_answers=4)
     (count-questions.to_a.count).times { questions.build }
-    questions.each do|question| 
-        num_of_answers.times { question.answers.build }
+    questions.each do |question| 
+      num_of_answers.times { question.answers.build }
     end
   end
 

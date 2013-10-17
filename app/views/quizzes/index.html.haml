@@ -7,7 +7,7 @@
   - if @quizzes.count > 0
     - @quizzes.each do |quiz|
       %li 
-        = link_to quiz.title, quiz 
+        = link_to quiz.title, new_quiz_attempt_path(quiz) 
         .author{class: 'author'}
           added by
           = quiz.author

@@ -5,6 +5,7 @@ class AttemptsController < ActionController::Base
     end
 
     def create
+      # @attempt = Attempt.new
       @quiz = Quiz.find params[:quiz_id]
       answer_ids = params[:answer_ids].values
       scorer = Scorer.new(@quiz)

@@ -10,7 +10,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new quiz_params
     if @quiz.save
       WebsocketRails[:quizzes].trigger 'new', @quiz
-      redirect_to @quiz
+      redirect_to '/'
     else
       render :template => '/quizzes/new.html.haml'
     end
