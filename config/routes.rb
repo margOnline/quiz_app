@@ -6,6 +6,10 @@ QuizApp::Application.routes.draw do
     resources :attempts, only: [:new, :create, :show]
   end
 
+  resources :questions do
+    resources :attempts, only: [:new, :create, :show]
+  end
+
   # get '/quizzes' => 'quiz#index'
   # post '/quizzes' => 'quiz#create'
   # get '/quizzes/:id' => 'quiz#show'

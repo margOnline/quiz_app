@@ -1,7 +1,9 @@
 class AttemptsController < ActionController::Base
   
     def new
+
       @quiz = Quiz.find params[:quiz_id]
+      render layout: 'application'
     end
 
     def create

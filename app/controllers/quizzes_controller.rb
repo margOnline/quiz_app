@@ -12,12 +12,14 @@ class QuizzesController < ApplicationController
       WebsocketRails[:quizzes].trigger 'new', @quiz
       redirect_to '/'
     else
+      @quiz.build_questions
       render :template => '/quizzes/new.html.haml'
     end
   end
 
   def new
     @quiz = Quiz.new
+    @quiz.build_questions
   end
 
   def show
